@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  dev-server:
+    image: 'angular-starter-app:latest'
+    build:
+      context: ./
+      dockerfile: tools/docker/app.Dockerfile
+    container_name: 'angular-starter-app'
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./src:/var/opt/app/src
+
+  cypress:
+    image: "cypress-util:latest"
+    build:
+      context: ./
+      dockerfile: tools/docker/cypress.Dockerfile
+    container_name: 'cypress-util'
+    environment:
+      - CYPRESS_BASE_URL=http://dev-server:4200
+    volumes:
+      - ./:/var/opt/app
+    depends_on:
+      - dev-server
+    stdin_open: true
+    tty: true
+
+  npm:
+    image: 'node:20.19.5-alpine'
+    container_name: 'npm-util'
+    working_dir: /var/opt/app
+    environment:
+      - CYPRESS_CACHE_FOLDER=./.cypress-cache
+    volumes:
+      - ./:/var/opt/app
+    stdin_open: true
+    tty: true
+    entrypoint: ['npm']
+
+  ng:
+    image: 'ng-util:latest'
+    build:
+      context: ./
+      dockerfile: tools/docker/ng.Dockerfile
+    container_name: 'ng-util'
+    volumes:
+      - ./:/var/opt/app
+    stdin_open: true
+    tty: true
+
+networks:
+  default:
+    name: angular-starter-network

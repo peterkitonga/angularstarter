@@ -1,59 +1,136 @@
-# Angularstarter
+# Angular Starter
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli). It is a starter created to serve as a starting template for an SPA built with Angular and TypeScript.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- [TypeScript](https://www.typescriptlang.org/) - For type safety and other awesome features not native to vanilla JavaScript.
+- [Angular](https://angular.dev/) - Frontend framework for building reactive and responsive web applications.
+- [NgRx](https://ngrx.io/) - RxJS powered state management library.
+- [Jest](https://jestjs.io/) - Javascript testing framework.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework.
 
-```bash
-ng serve
-```
+## Roadmap
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- [x] Jest for unit tests
+- [x] Cucumber and cypress for E2E tests
+- [x] Containerized setup for development with docker-compose
+- [ ] Service workers setup with PWA
+- [ ] State management with NgRx
+- [ ] Jenkins pipeline for running tests
+- [ ] Code coverage with coveralls
+- [ ] Containerized setup for production with docker-compose
 
-## Code scaffolding
+## Installing dependencies
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+To install a dependency(e.g. js-cookie) using the provided docker "utility" service, run
 
 ```bash
-ng build
+docker-compose run --rm npm install js-cookie
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Angular CLI
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To run angular CLI commands with the provided docker "utility" service, run
 
 ```bash
-ng test
+docker-compose run --rm ng [angular command]
 ```
 
-## Running end-to-end tests
+## Run Locally
 
-For end-to-end (e2e) testing, run:
+First, you must install dependencies after cloning the project
 
 ```bash
-ng e2e
+npm install
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Or with docker
 
-## Additional Resources
+```bash
+docker-compose run --rm npm install
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+You can run the dev server with npm
+
+```bash
+npm start
+```
+
+Alternatively, you can run it with docker
+
+```bash
+docker-compose up -d dev-server
+```
+
+Navigate to `http://127.0.0.1:4200/`. The application will automatically reload if you change any of the source files.
+
+## Running Unit Tests
+
+To execute the unit tests, run
+
+```bash
+npm test
+```
+
+To view the coverage reports for the unit tests, run
+
+```bash
+npm run test:view
+```
+
+Alternatively, you can run the unit tests using docker
+
+```bash
+docker-compose run --rm npm run test
+```
+
+## E2E testing
+
+To execute the e2e tests(cypress) with a browser, run
+
+```bash
+npm run cypress:open
+```
+
+A "utility" service has been provided in the project for running with docker. To run the tests, run
+
+```bash
+docker-compose run --rm cypress run --browser chrome
+```
+
+## Build project
+
+Project build artifacts will be stored in the `dist/` directory.
+
+To build the project, run
+
+```bash
+npm run build
+```
+
+To execute the same with the provided docker "utility" service, run
+
+```bash
+docker-compose run --rm npm run build
+```
+
+## Linting
+
+Linting is configured with eslint and prettier. You are free to configure it to your liking using the configuration files `.eslint.config.js` and `.prettierrc`
+
+To format code with linting rules, run
+
+```bash
+npm run lint
+```
+
+Alternative docker command
+
+```bash
+docker-compose run --rm npm run lint
+```
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
