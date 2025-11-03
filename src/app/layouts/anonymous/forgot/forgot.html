@@ -1,0 +1,17 @@
+<main class="min-h-[calc(100vh-4.375rem)] bg-gray-100 flex items-center justify-center p-4 mt-0.5">
+  <div class="max-w-lg w-full bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+    <form class="p-7">
+      <a routerLink="/auth/signin" class="block text-[32px] font-medium hover:underline">
+        <span class="material-symbols-outlined ">arrow_back</span> Back to Sign In
+      </a>
+      <p class="mb-6 mt-2.5 font-normal text-zinc-400">
+        Enter your email and we'll send you a reset link!
+      </p>
+      <div class="relative z-0 mb-6 w-full group">
+        <input type="email" id="userEmail" class="block py-3.5 px-3 w-full text-sm text-gray-900 bg-transparent rounded-sm border border-gray-300 appearance-none focus:outline-none focus:ring focus:border-blue-600 peer" placeholder=" " required />
+        <label for="userEmail" class="bg-white px-1.5 absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3.5 left-2 z-10 origin-[0] peer-focus:left-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email </label>
+      </div>
+      <button type="submit" class="px-4 py-3 w-full cursor-pointer border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-lime-600 hover:bg-lime-700">Send Email</button>
+    </form>
+  </div>
+</main>

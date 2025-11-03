@@ -1,0 +1,47 @@
+<nav
+  class="flex flex-wrap items-center justify-between w-full px-4 py-4 tracking-wide bg-white shadow-lg bg-white bg-opacity-90 md:px-6 lg:px-14"
+>
+  <div class="flex items-center">
+    <a routerLink="/" class="text-3xl tracking-wide"> Starter </a>
+  </div>
+
+  <button
+    [cdkMenuTriggerFor]="mobileMenu"
+    class="lg:hidden px-2 py-1 border border-transparent rounded-md shadow-sm text-base font-medium leading-none text-white bg-lime-600 hover:bg-lime-700 cursor-pointer"
+  >
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+
+  <ng-template #mobileMenu>
+    <div class="py-1 text-gray-500 bg-white rounded-lg shadow-xl min-w-max" cdkMenu>
+      <a
+        routerLink="/auth/signin"
+        class="block px-4 py-1 hover:text-gray-900 hover:bg-gray-100 w-full text-left cursor-pointer"
+        cdkMenuItem
+      >
+        Sign In
+      </a>
+      <a
+        routerLink="/auth/signup"
+        class="block px-4 py-1 hover:text-gray-900 hover:bg-gray-100 w-full text-left cursor-pointer"
+        cdkMenuItem
+      >
+        Sign Up
+      </a>
+    </div>
+  </ng-template>
+
+  <div class="hidden w-full lg:flex lg:items-center lg:w-auto">
+    <div class="items-center flex-1 pt-6 justify-center text-lg text-gray-500 lg:pt-0 list-reset lg:flex">
+      <a routerLink="/auth/signin" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+        Sign In
+      </a>
+      <a
+        routerLink="/auth/signup"
+        class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-lime-600 hover:bg-lime-700"
+      >
+        Sign Up
+      </a>
+    </div>
+  </div>
+</nav>
